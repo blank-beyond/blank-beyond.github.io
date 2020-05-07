@@ -202,6 +202,96 @@
             
 
   
+    <article id="post-了解当下的嵌入式系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/05/07/%E4%BA%86%E8%A7%A3%E5%BD%93%E4%B8%8B%E7%9A%84%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/" target="_blank">了解当下的嵌入式系统</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/05/07/%E4%BA%86%E8%A7%A3%E5%BD%93%E4%B8%8B%E7%9A%84%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/" class="archive-article-date">
+        <time datetime="2020-05-07T08:43:52.112Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-07</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="1-1-嵌入式系统概述"><a href="#1-1-嵌入式系统概述" class="headerlink" title="1-1 嵌入式系统概述"></a>1-1 嵌入式系统概述</h2><h3 id="1-1-1-基本概念"><a href="#1-1-1-基本概念" class="headerlink" title="1-1-1 基本概念"></a>1-1-1 基本概念</h3><h3 id="1-1-2-由来"><a href="#1-1-2-由来" class="headerlink" title="1-1-2 由来"></a>1-1-2 由来</h3><pre><code>计算机系统的产生是由于科学家需要一个高速的计算工具，而嵌入式系统是计算机技术发展到一定阶段，测控系统对计算机的需要而产生的。</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#发送请求函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getpage</span><span class="params">(header, cookie)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>,<span class="number">2000</span>):</span><br><span class="line">        base_url = <span class="string">'https://www.zhihu.com/api/v4/questions/29815334/answers?include=data%5B*%5D.is_normal%2Cadmin_closed'</span> \</span><br><span class="line">                   <span class="string">'_comment%2Creward_info%2Cis_collapsed%2Cannotation_action%2Cannotation_detail%2Ccollapse_reason%2Cis'</span> \</span><br><span class="line">                   <span class="string">'_sticky%2Ccollapsed_by%2Csuggest_edit%2Ccomment_count%2Ccan_comment%2Ccontent&amp;offset='</span> + str(i) + <span class="string">'&amp;limit=1&amp;sort'</span> \</span><br><span class="line">                 <span class="string">'_by=default'</span></span><br><span class="line">        response = requests.get(base_url, headers=header, cookies=cookie)</span><br><span class="line">        html = response.text</span><br><span class="line">        img_json = json.loads(html)</span><br><span class="line">        print(<span class="string">'正在抓取知乎长腿小姐姐图片 第%s条评论'</span>% i)</span><br><span class="line">        contentpage(img_json)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>1-1-3 发展历史<br>         1946年，世界上第一台电子数字计算机。</p>
+<pre><code>1971年，Intel公司推出了里芯片4004微处理器，也许是嵌入式计算机的雏形。
+
+1976年，Intel公司推出了世界上第一个单片微型计算机MCS-48，开创了将诸如ROM、RAM、定时器等CPU外部资源，与CPU一起集成到一个硅片上生产的时代。至今8位MCS-51单片机还有一定市场。
+
+1984年，Intel推出了16位8096系列并将其称之为嵌入式微控制器，这可能是“嵌入式”一词第一次在微处理器领域出现。</code></pre><p>  ARM微处理器的出现，较快地促进了嵌入式系统的发展。</p>
+<pre><code>  何为ARM（Advanced RISC Machines）？
+
+①.公司的名称。1985年，第一个ARM原型在英国剑桥诞生，1990年成立了ARM公司。
+
+②.对一类微处理器的简称。Cortex-A应用处理器系列；Cortex-M 微控制器系列；Cortex-R实时处理器系列
+
+③.一种技术的名称。</code></pre>
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/05/07/%E4%BA%86%E8%A7%A3%E5%BD%93%E4%B8%8B%E7%9A%84%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
