@@ -10,16 +10,16 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="@TOC 1 序言&#x3D;&#x3D;注意：本文使用的芯片是“STM32F103C8T6”以及ST-LINK下载，8MHZ晶振，不同的芯片，基本配置一样，只需更改一处，下文会说到&#x3D;&#x3D;网上大部分0.96寸的OLED屏幕为7脚和4脚，这个六脚是商家把七脚的CS端直接接地，没有影响，如下图，CS在写命令，读状态，写数据，读数据时均为低电平，故无影响。 2 如何利用STM32单片机驱动12864液晶屏2.1基本配置本次使">
+  <meta name="description" content="@TOC 1 序言&#x3D;&#x3D;注意：本文使用的芯片是“STM32F103C8T6”以及ST-LINK下载，8MHZ晶振，不同的芯片，基本配置一样，只需更改一处，下文会说到&#x3D;&#x3D;网上大部分0.96寸的OLED屏幕为7脚和4脚，这个六脚是商家把七脚的CS端直接接地，没有影响，如下图，CS在写命令，读状态，写数据，读数据时均为低电平，故无影响。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="STM32驱动0.96寸OLED屏幕（六脚）">
 <meta property="og:url" content="http://yoursite.com/2020/09/12/STM32%E9%A9%B1%E5%8A%A80.96%E5%AF%B8OLED%E5%B1%8F%E5%B9%95%EF%BC%88%E5%85%AD%E8%84%9A%EF%BC%89/index.html">
 <meta property="og:site_name" content="Welcome to my blog">
-<meta property="og:description" content="@TOC 1 序言&#x3D;&#x3D;注意：本文使用的芯片是“STM32F103C8T6”以及ST-LINK下载，8MHZ晶振，不同的芯片，基本配置一样，只需更改一处，下文会说到&#x3D;&#x3D;网上大部分0.96寸的OLED屏幕为7脚和4脚，这个六脚是商家把七脚的CS端直接接地，没有影响，如下图，CS在写命令，读状态，写数据，读数据时均为低电平，故无影响。 2 如何利用STM32单片机驱动12864液晶屏2.1基本配置本次使">
+<meta property="og:description" content="@TOC 1 序言&#x3D;&#x3D;注意：本文使用的芯片是“STM32F103C8T6”以及ST-LINK下载，8MHZ晶振，不同的芯片，基本配置一样，只需更改一处，下文会说到&#x3D;&#x3D;网上大部分0.96寸的OLED屏幕为7脚和4脚，这个六脚是商家把七脚的CS端直接接地，没有影响，如下图，CS在写命令，读状态，写数据，读数据时均为低电平，故无影响。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200912092546943.png#pic_center">
 <meta property="article:published_time" content="2020-09-12T02:57:42.484Z">
-<meta property="article:modified_time" content="2020-09-12T02:56:16.152Z">
+<meta property="article:modified_time" content="2020-09-12T03:02:16.465Z">
 <meta property="article:author" content="Zhao lingfeng">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200912092546943.png#pic_center">
@@ -242,6 +242,7 @@
     
     <p>@<a href="STM32驱动0.96寸OLED屏幕（六脚）">TOC</a></p>
 <h1 id="1-序言"><a href="#1-序言" class="headerlink" title="1 序言"></a>1 序言</h1><p><strong><em>==注意：本文使用的芯片是“STM32F103C8T6”以及ST-LINK下载，8MHZ晶振，不同的芯片，基本配置一样，只需更改一处，下文会说到==</em></strong><br>网上大部分0.96寸的OLED屏幕为7脚和4脚，这个六脚是商家把七脚的CS端直接接地，没有影响，如下图，CS在写命令，读状态，写数据，读数据时均为低电平，故无影响。<br><img src="https://img-blog.csdnimg.cn/20200912092546943.png#pic_center" alt="在这里插入图片描述"></p>
+<a id="more"></a>
 <h1 id="2-如何利用STM32单片机驱动12864液晶屏"><a href="#2-如何利用STM32单片机驱动12864液晶屏" class="headerlink" title="2 如何利用STM32单片机驱动12864液晶屏"></a>2 如何利用STM32单片机驱动12864液晶屏</h1><h2 id="2-1基本配置"><a href="#2-1基本配置" class="headerlink" title="2.1基本配置"></a>2.1<em>基本配置</em></h2><p>本次使用CubeMX工具进行基本配置，如果是新手不知道如何配置的可以观看这个视频，讲的很详细:链接: <a href="https://www.bilibili.com/video/BV1m7411H7oT?p=10" target="_blank" rel="noopener">【小蜜蜂笔记】基于STM32CubeMX的嵌入式开发基础教程</a>.</p>
 <h2 id="2-2-0-96寸OLED端口含义"><a href="#2-2-0-96寸OLED端口含义" class="headerlink" title="2.2 0.96寸OLED端口含义"></a>2.2 <em>0.96寸OLED端口含义</em></h2><p>六脚定义（还是六脚的定义清楚一些）</p>
 <p>　　　　==GND — 接地端口==</p>
